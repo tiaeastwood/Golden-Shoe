@@ -19,13 +19,25 @@ const StyledHeader = styled.header`
 	height: 5rem;
 	color: white;
 	padding: 0 2rem;
+	position: fixed;
+	top: 0;
+	z-index: 99;
+	width: 100%;
+`;
+
+const TitleText = styled.h1`
+	@media (max-width: 800px) {
+		font-size: 1.5rem;
+	}
 `;
 
 const StyledNav = styled.nav`
-	width: 60%;
-	list-style-type: none;
-	@media (max-width: 700px) {
-		display: none;
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+	margin-right: 60px;
+	@media (max-width: 800px) {
+		width: 30%;
 	}
 `;
 
@@ -35,15 +47,18 @@ const StyledList = styled.ul`
 	display: flex;
 	justify-content: space-around;
 	align-items: center;
+	@media (max-width: 800px) {
+		display: none;
+	}
 `;
 
 const BurgerButton = styled.button`
-    background: transparent;
+	background: transparent;
 	border: none;
 	display: none;
-	@media only screen and (max-width: 700px) {
-	   display: inline;
-		
+	@media only screen and (max-width: 800px) {
+		display: inline;
+	}
 `;
 
 const DrawerHeader = styled.div`
@@ -87,55 +102,46 @@ const Header = () => {
 						<ListItemText primary={text} />
 					</ListItem>
 				))}
-				<ListItem>
-					<ShoppingBasketIcon />
-				</ListItem>
 			</List>
 		</Box>
 	);
 
 	return (
-		<>
-			<StyledHeader>
-				<h1>Golden Shoe</h1>
-				<StyledNav>
-					<StyledList>
-						{menuLinks.map((item) => (
-							<ListItem>{item}</ListItem>
-						))}
-						<ListItem>
-							<ShoppingBasketIcon />
-						</ListItem>
-					</StyledList>
-				</StyledNav>
+		<StyledHeader>
+			<TitleText>Golden Shoe</TitleText>
+			<StyledNav>
+				<StyledList>
+					{menuLinks.map((item) => (
+						<ListItem>{item}</ListItem>
+					))}
+				</StyledList>
+				<ShoppingBasketIcon style={{ fontSize: 40, marginLeft: "10px" }} />
 				<BurgerButton onClick={toggleDrawer("left", true)}>
 					<MenuIcon style={{ color: "white", fontSize: 50 }} />
 				</BurgerButton>
-			</StyledHeader>
+			</StyledNav>
 
-			<div>
-				{["left", "right", "top", "bottom"].map((anchor) => (
-					<React.Fragment key={anchor}>
-						<Drawer
-							anchor={anchor}
-							open={state[anchor]}
-							onClose={toggleDrawer(anchor, false)}
-						>
-							<DrawerHeader>
-								<Button>
-									<CloseIcon
-										style={{ fontSize: 50, color: "black" }}
-										onClose={toggleDrawer(anchor, false)}
-									/>
-								</Button>
-								<h1>Menu</h1>
-							</DrawerHeader>
-							{list(anchor)}
-						</Drawer>
-					</React.Fragment>
-				))}
-			</div>
-		</>
+			{["left", "right", "top", "bottom"].map((anchor) => (
+				<React.Fragment key={anchor}>
+					<Drawer
+						anchor={anchor}
+						open={state[anchor]}
+						onClose={toggleDrawer(anchor, false)}
+					>
+						<DrawerHeader>
+							<Button>
+								<CloseIcon
+									style={{ fontSize: 50, color: "black" }}
+									onClick={toggleDrawer(anchor, false)}
+								/>
+							</Button>
+							<h1>Menu</h1>
+						</DrawerHeader>
+						{list(anchor)}
+					</Drawer>
+				</React.Fragment>
+			))}
+		</StyledHeader>
 	);
 };
 
