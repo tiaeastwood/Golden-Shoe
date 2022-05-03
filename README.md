@@ -1,17 +1,30 @@
 # Golden Shoe
 
 ## Technologies
+
 - React
 - Styled Components
 - react-router-dom
+- json-server
+
+## About
+
+Website redesign demo for Golden Shoe.
+Product data comes from a fake API I created using json-server.
 
 ## Getting started
-- Install dependencies
+
+1. Install dependencies
+
 ```
 npm i
 ```
+2. Run the json-server fake API
+```
+npm run server
+```
+3. Run the frontend app
 
-- Run app in localhost:3000
 ```
 npm start
 ```

@@ -25,6 +25,9 @@ const StyledHeader = styled.header`
 	top: 0;
 	z-index: 99;
 	width: 100%;
+	@media (max-width: 800px) {
+		padding: 0.5rem;
+	}
 `;
 
 const TitleText = styled.h1`
@@ -38,7 +41,7 @@ const StyledNav = styled.nav`
 	justify-content: flex-end;
 	align-items: center;
 	@media (max-width: 800px) {
-		width: 30%;
+		width: 50%;
 	}
 `;
 
@@ -115,23 +118,35 @@ const Header = () => {
 
 	return (
 		<StyledHeader>
-			<TitleText>Golden Shoe</TitleText>
+			<Link to="/" style={{ color: "white" }}>
+				<TitleText>Golden Shoe</TitleText>
+			</Link>
 			<StyledNav>
 				<StyledList>
 					{menuLinks.map((menuItem) => (
 						<ListItem button key={menuItem.page}>
 							<Link to={menuItem.link}>
-								<ListItemText primary={menuItem.page} />
+								<ListItemText
+									style={{ color: "white" }}
+									primary={menuItem.page}
+								/>
 							</Link>
 						</ListItem>
 					))}
 				</StyledList>
+
 				<Link to="/account">
-					<PersonIcon style={{ fontSize: 40, marginLeft: "10px" }} />
+					<PersonIcon
+						style={{ fontSize: 40, marginLeft: "10px", color: "white" }}
+					/>
 				</Link>
+
 				<Link to="/cart">
-					<ShoppingBasketIcon style={{ fontSize: 40, marginLeft: "10px" }} />
+					<ShoppingBasketIcon
+						style={{ fontSize: 40, marginLeft: "10px", color: "white" }}
+					/>
 				</Link>
+
 				<BurgerButton onClick={toggleDrawer("left", true)}>
 					<MenuIcon style={{ color: "white", fontSize: 50 }} />
 				</BurgerButton>

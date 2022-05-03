@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import styled from "styled-components";
 
 const StyledFooter = styled.footer`
@@ -6,11 +6,13 @@ const StyledFooter = styled.footer`
 	height: 6rem;
 	background: black;
 	color: white;
-    bottom: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 3rem;
+	bottom: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-top: 3rem;
+	position: absolute;
+	bottom: 0;
 `;
 
 const Footer = () => {

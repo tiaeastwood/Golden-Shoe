@@ -1,6 +1,6 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
-import shoesPic from "../images/shoes.jpg";
+const axios = require("axios");
 
 const HeroContainer = styled.div`
 	width: 100%;
@@ -8,24 +8,39 @@ const HeroContainer = styled.div`
 	margin: 0;
 	overflow: hidden;
 	vertical-align: middle;
-	@media only screen and (max-width: 800px) {
-		height: auto;
-	}
+
 `;
 
 const StyledImage = styled.img`
-    max-width: 100%;
+	width: 100%;
 	object-fit: cover;
 	object-position: center center;
 	@media only screen and (max-width: 800px) {
-		max-height: 100%;
+		height: 100%;
 	}
 `;
 
 const Hero = () => {
+	const [data, setData] = useState();
+
+	useEffect(() => {
+		axios
+			.get("http://localhost:4000/shoes")
+			.then((res) => {
+				setData(res.data);
+			})
+			.catch((error) => {
+				console.log(error);
+			});
+	}, []);
+
+	if (!data) {
+		return <h1>Loading</h1>;
+	}
+
 	return (
 		<HeroContainer>
-			<StyledImage src={shoesPic} alt="Featured shoes" />
+			<StyledImage src={`${data[0].imgUrl}`} alt="Featured shoes" />
 		</HeroContainer>
 	);
 };

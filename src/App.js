@@ -16,9 +16,10 @@ const Wrapper = styled.div`
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	padding: 0;
+	padding-bottom: 10rem;
+	position: relative;
+	min-height: 100vh;
 `;
-
 
 function App() {
 	return (
@@ -27,7 +28,7 @@ function App() {
 			<Routes>
 				<Route path="/" element={<Home />} />
 				<Route path="/products" element={<Products />} />
-				<Route path="/item" element={<Item />} />
+				<Route path="/products/:id" element={<Item />} />
 				<Route path="/about" element={<About />} />
 				<Route path="/account" element={<Account />} />
 				<Route path="/cart" element={<Cart />} />

@@ -1,11 +1,12 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 import Hero from "../components/Hero";
 import Grid from "@mui/material/Grid";
-import shoes1 from "../images/shoes1.jpg";
-import shoes2 from "../images/shoes2.jpg";
+
+
+const axios = require("axios");
 
 const ImageContainer = styled.div`
 	position: relative;
@@ -45,11 +46,29 @@ const Overlay = styled.div`
 	}
 `;
 
-function Home() {
+const Home = () => {
+	const [data, setData] = useState();
+
+	useEffect(() => {
+		axios
+			.get("http://localhost:4000/shoes")
+			.then((res) => {
+				console.log("initial data", res.data);
+				setData(res.data);
+			})
+			.catch((error) => {
+				console.log(error);
+			});
+	}, []);
+
+	if (!data) {
+		return <h1>Loading</h1>;
+	}
+
 	return (
 		<>
 			<Hero />
-			<Grid container xs={12} spacing={6}>
+			<Grid container spacing={2}>
 				<Grid item xs={12}>
 					<h2
 						style={{
@@ -63,25 +82,29 @@ function Home() {
 				</Grid>
 
 				<Grid item xs={12} md={6}>
-					<ImageContainer>
-						<StyledImage src={shoes1} alt="cool shoes" />
-						<Overlay>
-							<h2>SHOP NOW!</h2>
-						</Overlay>
-					</ImageContainer>
+					<Link to={`/products/${data[1].id}`}>
+						<ImageContainer>
+							<StyledImage src={`${data[1].imgUrl}`} alt="cool shoes" />
+							<Overlay>
+								<h2>SHOP NOW!</h2>
+							</Overlay>
+						</ImageContainer>
+					</Link>
 				</Grid>
 
 				<Grid item xs={12} md={6}>
-					<ImageContainer>
-						<StyledImage src={shoes2} alt="cool shoes" />
-						<Overlay>
-							<h2>SHOP NOW!</h2>
-						</Overlay>
-					</ImageContainer>
+					<Link to={`/products/${data[2].id}`}>
+						<ImageContainer>
+							<StyledImage src={`${data[2].imgUrl}`} alt="cool shoes" />
+							<Overlay>
+								<h2>SHOP NOW!</h2>
+							</Overlay>
+						</ImageContainer>
+					</Link>
 				</Grid>
 			</Grid>
 		</>
 	);
-}
+};
 
 export default Home;
