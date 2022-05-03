@@ -3,6 +3,7 @@
 ## Technologies
 - React
 - Styled Components
+- react-router-dom
 
 ## Getting started
 - Install dependencies

@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 import MenuIcon from "@mui/icons-material/Menu";
 import Box from "@mui/material/Box";
@@ -9,11 +10,12 @@ import ListItem from "@mui/material/ListItem";
 import ListItemText from "@mui/material/ListItemText";
 import CloseIcon from "@mui/icons-material/Close";
 import ShoppingBasketIcon from "@mui/icons-material/ShoppingBasket";
+import PersonIcon from "@mui/icons-material/Person";
 
 const StyledHeader = styled.header`
 	background-color: darkred;
 	display: flex;
-	justify-content: space-around;
+	justify-content: space-between;
 	align-items: center;
 	font-size: 1rem;
 	height: 5rem;
@@ -75,7 +77,11 @@ const Header = () => {
 		right: false,
 	});
 
-	const menuLinks = ["Home", "Products", "Account", "About", "Contact"];
+	const menuLinks = [
+		{ page: "Home", link: "/" },
+		{ page: "Products", link: "/products" },
+		{ page: "About", link: "/about" },
+	];
 
 	const toggleDrawer = (anchor, open) => (event) => {
 		if (
@@ -96,9 +102,11 @@ const Header = () => {
 			onKeyDown={toggleDrawer(anchor, false)}
 		>
 			<List>
-				{menuLinks.map((text) => (
-					<ListItem button key={text}>
-						<ListItemText primary={text} />
+				{menuLinks.map((menuItem) => (
+					<ListItem button key={menuItem.page}>
+						<Link to={menuItem.link}>
+							<ListItemText primary={menuItem.page} />
+						</Link>
 					</ListItem>
 				))}
 			</List>
@@ -110,11 +118,20 @@ const Header = () => {
 			<TitleText>Golden Shoe</TitleText>
 			<StyledNav>
 				<StyledList>
-					{menuLinks.map((item) => (
-						<ListItem>{item}</ListItem>
+					{menuLinks.map((menuItem) => (
+						<ListItem button key={menuItem.page}>
+							<Link to={menuItem.link}>
+								<ListItemText primary={menuItem.page} />
+							</Link>
+						</ListItem>
 					))}
 				</StyledList>
-				<ShoppingBasketIcon style={{ fontSize: 40, marginLeft: "10px" }} />
+				<Link to="/account">
+					<PersonIcon style={{ fontSize: 40, marginLeft: "10px" }} />
+				</Link>
+				<Link to="/cart">
+					<ShoppingBasketIcon style={{ fontSize: 40, marginLeft: "10px" }} />
+				</Link>
 				<BurgerButton onClick={toggleDrawer("left", true)}>
 					<MenuIcon style={{ color: "white", fontSize: 50 }} />
 				</BurgerButton>
