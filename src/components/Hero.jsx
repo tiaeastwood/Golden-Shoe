@@ -8,9 +8,13 @@ const HeroContainer = styled.div`
 	margin: 0;
 	overflow: hidden;
 	vertical-align: middle;
+	@media only screen and (max-width: 800px) {
+		height: auto;
+	}
 `;
 
 const StyledImage = styled.img`
+    max-width: 100%;
 	object-fit: cover;
 	object-position: center center;
 	@media only screen and (max-width: 800px) {
@@ -21,7 +25,7 @@ const StyledImage = styled.img`
 const Hero = () => {
 	return (
 		<HeroContainer>
-			<StyledImage src={shoesPic} alt="Amazing shoes!" />
+			<StyledImage src={shoesPic} alt="Featured shoes" />
 		</HeroContainer>
 	);
 };

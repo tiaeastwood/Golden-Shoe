@@ -13,7 +13,7 @@ import ShoppingBasketIcon from "@mui/icons-material/ShoppingBasket";
 const StyledHeader = styled.header`
 	background-color: darkred;
 	display: flex;
-	justify-content: space-between;
+	justify-content: space-around;
 	align-items: center;
 	font-size: 1rem;
 	height: 5rem;
@@ -35,7 +35,6 @@ const StyledNav = styled.nav`
 	display: flex;
 	justify-content: flex-end;
 	align-items: center;
-	margin-right: 60px;
 	@media (max-width: 800px) {
 		width: 30%;
 	}
