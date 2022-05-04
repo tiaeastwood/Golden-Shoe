@@ -20,6 +20,17 @@ const StyledImage = styled.img`
 	object-position: center center;
 `;
 
+const InfoContainer = styled.div`
+	width: 100%;
+	height: auto;
+	display: flex;
+	justify-content: space-between;
+
+	h4 {
+		display: inline;
+	}
+`;
+
 const Item = () => {
 	const [data, setData] = useState();
 	let { id } = useParams();
@@ -44,10 +55,14 @@ const Item = () => {
 
 	return (
 		<StyledMain>
-			<h1>{data.name}</h1>
 			<ImageContainer>
-				<StyledImage src={`${data.imgUrl}`} alt="cool shoes" />
+				<StyledImage src={`${data.imgUrl}`} alt={`${data.name}`} />
 			</ImageContainer>
+			<InfoContainer>
+				<h3>{data.brand}</h3>
+				<h3>{data.name}</h3>
+				<h3>{data.price}</h3>
+			</InfoContainer>
 			<p>{data.description}</p>
 		</StyledMain>
 	);

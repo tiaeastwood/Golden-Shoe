@@ -41,7 +41,7 @@ const Products = () => {
 	}, []);
 
 	if (!data) {
-		return <p>Loading...</p>;
+		return <h1>Loading</h1>;
 	}
 
 	return (
@@ -52,9 +52,14 @@ const Products = () => {
 						return (
 							<Grid item xs={6} key={prod.id}>
 								<ProductContainer>
-									<ImageContainer>
-										<StyledImage src={`${prod.imgUrl}`} alt={`${prod.name}`} />
-									</ImageContainer>
+									<Link to={`/products/${prod.id}`}>
+										<ImageContainer>
+											<StyledImage
+												src={`${prod.imgUrl}`}
+												alt={`${prod.name}`}
+											/>
+										</ImageContainer>
+									</Link>
 									<InfoContainer>
 										<h4>{prod.brand}</h4>
 										<p>{prod.name}</p>

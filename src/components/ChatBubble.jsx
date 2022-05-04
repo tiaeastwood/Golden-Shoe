@@ -66,23 +66,53 @@ const ChatBubble = () => {
 						Hello, how can I help you today? Please choose an option below:
 					</ChatText>
 
-					<ChatText style={{ alignSelf: "flex-end", fontWeight: "bold" }}>
+					<ChatText
+						style={{
+							alignSelf: "flex-end",
+							fontWeight: "bold",
+							cursor: "pointer",
+						}}
+					>
 						Check something is in stock
 					</ChatText>
 
-					<ChatText style={{ alignSelf: "flex-end", fontWeight: "bold" }}>
+					<ChatText
+						style={{
+							alignSelf: "flex-end",
+							cursor: "pointer",
+							fontWeight: "bold",
+						}}
+					>
 						Sizing information
 					</ChatText>
 
-					<ChatText style={{ alignSelf: "flex-end", fontWeight: "bold" }}>
+					<ChatText
+						style={{
+							alignSelf: "flex-end",
+							fontWeight: "bold",
+							cursor: "pointer",
+						}}
+					>
 						Delivery information
 					</ChatText>
 
-					<ChatText style={{ alignSelf: "flex-end", fontWeight: "bold" }}>
+					<ChatText
+						style={{
+							alignSelf: "flex-end",
+							fontWeight: "bold",
+							cursor: "pointer",
+						}}
+					>
 						Returns process
 					</ChatText>
 
-					<ChatText style={{ alignSelf: "flex-end", fontWeight: "bold" }}>
+					<ChatText
+						style={{
+							alignSelf: "flex-end",
+							fontWeight: "bold",
+							cursor: "pointer",
+						}}
+					>
 						Other (speak to an advisor)
 					</ChatText>
 				</ChatWindow>

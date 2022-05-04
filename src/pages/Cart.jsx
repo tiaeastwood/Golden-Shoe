@@ -5,6 +5,7 @@ const Cart = () => {
 	return (
 		<StyledMain>
 			<h1>Cart</h1>
+			<p>Items in your cart</p>
 		</StyledMain>
 	);
 };
