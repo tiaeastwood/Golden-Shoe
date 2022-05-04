@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 const axios = require("axios");
 
@@ -8,7 +9,7 @@ const HeroContainer = styled.div`
 	margin: 0;
 	overflow: hidden;
 	vertical-align: middle;
-
+	position: relative;
 `;
 
 const StyledImage = styled.img`
@@ -17,6 +18,39 @@ const StyledImage = styled.img`
 	object-position: center center;
 	@media only screen and (max-width: 800px) {
 		height: 100%;
+	}
+`;
+
+const OverLay = styled.div`
+	position: absolute;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	height: 100%;
+	width: 100%;
+	text-align: center;
+`;
+
+const HeroText = styled.h1`
+	color: white;
+	background: rgb(139, 0, 0, 0.75);
+	padding: 5px;
+	width: auto;
+	max-width: 90%;
+`;
+
+const ShopButton = styled.button`
+	width: auto;
+	background: white;
+	color: darkred;
+	border: none;
+	padding: 0 10px;
+	font-weight: bold;
+	box-shadow: 5px 10px darkred;
+	&:hover {
+		box-shadow: 5px 5px darkred;
+		cursor: pointer;
 	}
 `;
 
@@ -40,6 +74,14 @@ const Hero = () => {
 
 	return (
 		<HeroContainer>
+			<OverLay>
+				<HeroText>THE HOME OF AWESOME SHOES!</HeroText>
+				<Link to="/products">
+					<ShopButton>
+						<h2>SHOP NOW</h2>
+					</ShopButton>
+				</Link>
+			</OverLay>
 			<StyledImage src={`${data[0].imgUrl}`} alt="Featured shoes" />
 		</HeroContainer>
 	);

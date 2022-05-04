@@ -12,3 +12,17 @@ export const StyledMain = styled.main`
 	}
 `;
 
+export const ImageContainer = styled.div`
+	position: relative;
+	width: 100%;
+	height: 100%;
+	vertical-align: middle;
+	overflow: hidden;
+`;
+
+export const StyledImage = styled.img`
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	object-position: center center;
+`;

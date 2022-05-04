@@ -4,24 +4,9 @@ import styled from "styled-components";
 
 import Hero from "../components/Hero";
 import Grid from "@mui/material/Grid";
-
+import { ImageContainer, StyledImage } from "../components/shared";
 
 const axios = require("axios");
-
-const ImageContainer = styled.div`
-	position: relative;
-	width: 100%;
-	height: 100%;
-	vertical-align: middle;
-	overflow: hidden;
-`;
-
-const StyledImage = styled.img`
-	width: 100%;
-	height: 100%;
-	object-fit: cover;
-	object-position: center center;
-`;
 
 const Overlay = styled.div`
 	display: flex;
@@ -84,7 +69,7 @@ const Home = () => {
 				<Grid item xs={12} md={6}>
 					<Link to={`/products/${data[1].id}`}>
 						<ImageContainer>
-							<StyledImage src={`${data[1].imgUrl}`} alt="cool shoes" />
+							<StyledImage src={`${data[1].imgUrl}`} alt={`${data[1].name}`} />
 							<Overlay>
 								<h2>SHOP NOW!</h2>
 							</Overlay>
@@ -95,7 +80,7 @@ const Home = () => {
 				<Grid item xs={12} md={6}>
 					<Link to={`/products/${data[2].id}`}>
 						<ImageContainer>
-							<StyledImage src={`${data[2].imgUrl}`} alt="cool shoes" />
+							<StyledImage src={`${data[2].imgUrl}`} alt={`${data[1].name}`} />
 							<Overlay>
 								<h2>SHOP NOW!</h2>
 							</Overlay>

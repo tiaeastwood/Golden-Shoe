@@ -16,7 +16,7 @@ const Wrapper = styled.div`
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	padding-bottom: 10rem;
+	padding-bottom: 15rem;
 	position: relative;
 	min-height: 100vh;
 `;
