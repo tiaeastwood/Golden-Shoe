@@ -1,7 +1,4 @@
-import { useEffect, useState } from "react";
-
 export const useCart = () => {
-	// const [cartItems, setCartItems] = useState([]);
 
 	const addToCart = (product, size) => {
 		const newCartItem = {
@@ -11,12 +8,12 @@ export const useCart = () => {
             price: product.price,
 			size: size,
 		};
-        localStorage.setItem("cart-items", JSON.stringify(newCartItem));
+        localStorage.setItem(`cart-item-${newCartItem.id}`, JSON.stringify(newCartItem));
 
-		// setCartItems([...cartItems, newCartItem]);
+
     };
     
-    const cartItems = JSON.parse(localStorage.getItem("cart-items"));
 
-	return { addToCart, cartItems };
+
+	return { addToCart  };
 };
