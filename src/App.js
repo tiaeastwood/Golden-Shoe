@@ -11,6 +11,7 @@ import Cart from "./pages/Cart";
 import Account from "./pages/Account";
 import ChatBubble from "./components/ChatBubble";
 
+
 const Wrapper = styled.div`
 	display: flex;
 	flex-direction: column;
@@ -23,19 +24,21 @@ const Wrapper = styled.div`
 
 function App() {
 	return (
-		<Wrapper>
-			<Header />
-			<Routes>
-				<Route path="/" element={<Home />} />
-				<Route path="/products" element={<Products />} />
-				<Route path="/products/:id" element={<Item />} />
-				<Route path="/about" element={<About />} />
-				<Route path="/account" element={<Account />} />
-				<Route path="/cart" element={<Cart />} />
-			</Routes>
-			<Footer />
-			<ChatBubble />
-		</Wrapper>
+
+				<Wrapper>
+					<Header />
+					<Routes>
+						<Route path="/" element={<Home />} />
+						<Route path="/products" element={<Products />} />
+						<Route path="/products/:id" element={<Item />} />
+						<Route path="/about" element={<About />} />
+						<Route path="/account" element={<Account />} />
+						<Route path="/cart" element={<Cart />} />
+					</Routes>
+					<Footer />
+					<ChatBubble />
+				</Wrapper>
+
 	);
 }
 

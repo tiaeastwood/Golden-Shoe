@@ -20,10 +20,10 @@ const Bubble = styled.div`
 `;
 
 const ChatWindow = styled.div`
-	width: 300px;
-	max-width: 95%;
-	height: 400px;
-	max-height: 90%;
+	width: 325px;
+	max-width: 80%;
+	height: 425px;
+	max-height: 70%;
 	border-radius: 20px;
 	background: white;
 	display: flex;
@@ -48,6 +48,12 @@ const ChatText = styled.div`
 	margin: 5px 0;
 `;
 
+const ChatOption = styled(ChatText)`
+	align-self: flex-end;
+	font-weight: bold;
+	cursor: pointer;
+`;
+
 const ChatBubble = () => {
 	const [openChat, setOpenChat] = useState(false);
 	return (
@@ -66,55 +72,11 @@ const ChatBubble = () => {
 						Hello, how can I help you today? Please choose an option below:
 					</ChatText>
 
-					<ChatText
-						style={{
-							alignSelf: "flex-end",
-							fontWeight: "bold",
-							cursor: "pointer",
-						}}
-					>
-						Check something is in stock
-					</ChatText>
-
-					<ChatText
-						style={{
-							alignSelf: "flex-end",
-							cursor: "pointer",
-							fontWeight: "bold",
-						}}
-					>
-						Sizing information
-					</ChatText>
-
-					<ChatText
-						style={{
-							alignSelf: "flex-end",
-							fontWeight: "bold",
-							cursor: "pointer",
-						}}
-					>
-						Delivery information
-					</ChatText>
-
-					<ChatText
-						style={{
-							alignSelf: "flex-end",
-							fontWeight: "bold",
-							cursor: "pointer",
-						}}
-					>
-						Returns process
-					</ChatText>
-
-					<ChatText
-						style={{
-							alignSelf: "flex-end",
-							fontWeight: "bold",
-							cursor: "pointer",
-						}}
-					>
-						Other (speak to an advisor)
-					</ChatText>
+					<ChatOption>Check something is in stock</ChatOption>
+					<ChatOption>Sizing information</ChatOption>
+					<ChatOption>Delivery information</ChatOption>
+					<ChatOption>Returns process</ChatOption>
+					<ChatOption>Other (speak to an advisor)</ChatOption>
 				</ChatWindow>
 			)}
 		</>

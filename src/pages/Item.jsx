@@ -2,6 +2,9 @@ import React, { useEffect, useState } from "react";
 import { StyledMain } from "../components/shared";
 import { useParams } from "react-router-dom";
 import styled from "styled-components";
+import Grid from "@mui/material/Grid";
+import ShoppingBasketIcon from "@mui/icons-material/ShoppingBasket";
+import { useCart } from "../hooks/useCart";
 
 const axios = require("axios");
 
@@ -21,49 +24,123 @@ const StyledImage = styled.img`
 `;
 
 const InfoContainer = styled.div`
-	width: 100%;
-	height: auto;
 	display: flex;
-	justify-content: space-between;
+	flex-direction: column;
+	justify-content: center;
+	width: 100%;
+	#main {
+		h4,
+		p {
+			margin: 0;
+		}
+	}
+	#size-area {
+		display: flex;
+		flex-direction: column;
 
-	h4 {
-		display: inline;
+		select {
+			padding: 10px;
+		}
+	}
+`;
+
+const AddToCartButton = styled.button`
+	width: auto;
+	padding: 10px;
+	background: black;
+	color: white;
+	margin-top: 20px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+
+	&:hover {
+		cursor: pointer;
+	}
+
+	span {
+		font-size: 18px;
+		font-weight: bold;
+		margin-right: 5px;
 	}
 `;
 
 const Item = () => {
-	const [data, setData] = useState();
+	const [selectedSize, setSelectedSize] = React.useState(5);
+	const [product, setProduct] = useState();
 	let { id } = useParams();
 
-	console.log(id);
+	const { addToCart } = useCart();
 
 	useEffect(() => {
 		axios
 			.get(`http://localhost:4000/shoes/${id}`)
 			.then((res) => {
-				console.log(res.data);
-				setData(res.data);
+				setProduct(res.data);
 			})
 			.catch((error) => {
 				console.log(error);
 			});
 	}, [id]);
 
-	if (!data) {
+	const handleChange = (event) => {
+		setSelectedSize(event.target.value);
+	};
+
+	if (!product) {
 		return <h1>Loading</h1>;
 	}
 
 	return (
 		<StyledMain>
-			<ImageContainer>
-				<StyledImage src={`${data.imgUrl}`} alt={`${data.name}`} />
-			</ImageContainer>
-			<InfoContainer>
-				<h3>{data.brand}</h3>
-				<h3>{data.name}</h3>
-				<h3>{data.price}</h3>
-			</InfoContainer>
-			<p>{data.description}</p>
+			<Grid container spacing={2}>
+				<Grid item xs={12} md={6}>
+					<ImageContainer>
+						<StyledImage src={`${product.imgUrl}`} alt={`${product.name}`} />
+					</ImageContainer>
+				</Grid>
+				<Grid item xs={12} md={6}>
+					<InfoContainer>
+						<div id="main">
+							<h4>{product.brand}</h4>
+							<p>{product.name}</p>
+							<p>{product.price}</p>
+						</div>
+						<div id="description">
+							<p>{product.description}</p>
+						</div>
+
+						<div id="size-area">
+							<label htmlFor="sizes">Choose your size</label>
+							<select
+								name="sizes"
+								id="sizes"
+								value={selectedSize}
+								onChange={handleChange}
+							>
+								{product.stock.map((s, index) => {
+									return (
+										<option
+											key={index}
+											disabled={s.stock === 0}
+											value={s.stock}
+										>
+											{s.stock > 0
+												? s.size
+												: `${s.size} - Sorry, that size is out of stock`}
+										</option>
+									);
+								})}
+							</select>
+						</div>
+						<AddToCartButton onClick={() => addToCart(product, selectedSize)}>
+							<span>BUY</span>
+							<ShoppingBasketIcon />
+						</AddToCartButton>
+					</InfoContainer>
+				</Grid>
+			</Grid>
 		</StyledMain>
 	);
 };

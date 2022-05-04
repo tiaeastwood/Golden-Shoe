@@ -3,10 +3,11 @@ import styled from "styled-components";
 
 export const StyledMain = styled.main`
 	height: 100%;
-    min-height: 100vh;
-	padding: 10% 20%;
+	width: 100%;
+	padding: 10%;
 	display: flex;
 	flex-direction: column;
+	margin-top: 20px;
 	@media only screen and (max-width: 800px) {
 		padding: 20% 10%;
 	}

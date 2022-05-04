@@ -38,7 +38,6 @@ const Home = () => {
 		axios
 			.get("http://localhost:4000/shoes")
 			.then((res) => {
-				console.log("initial data", res.data);
 				setData(res.data);
 			})
 			.catch((error) => {
