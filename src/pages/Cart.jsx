@@ -19,18 +19,26 @@ const CartItem = styled.div`
 `;
 
 const Cart = () => {
-	// const { cartItems } = useCart();
 	const [cartItems, setCartItems] = useState([]);
 
 	useEffect(() => {
 		let list = [];
-
 		for (let i = 0, len = localStorage.length; i < len; ++i) {
 			list.push(JSON.parse(localStorage.getItem(localStorage.key(i))));
 		}
-
 		setCartItems(list);
 	}, []);
+
+	const removeItem = (key) => {
+		const itemToRemove = `cart-item-${key}`;
+		localStorage.removeItem(itemToRemove);
+
+		let list = [];
+		for (let i = 0, len = localStorage.length; i < len; ++i) {
+			list.push(JSON.parse(localStorage.getItem(localStorage.key(i))));
+		}
+		setCartItems(list);
+	};
 
 	console.log(cartItems);
 
@@ -67,6 +75,9 @@ const Cart = () => {
 									<p>{item.price}</p>
 								</td>
 								<td>1</td>
+								<td>
+									<button onClick={() => removeItem(item.id)}>Remove</button>
+								</td>
 							</tr>
 						);
 					})}
