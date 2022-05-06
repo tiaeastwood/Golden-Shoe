@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import { Button } from "../components/shared";
 const axios = require("axios");
 
 const HeroContainer = styled.div`
@@ -40,19 +41,7 @@ const HeroText = styled.h1`
 	max-width: 90%;
 `;
 
-const ShopButton = styled.button`
-	width: auto;
-	background: white;
-	color: darkred;
-	border: none;
-	padding: 0 10px;
-	font-weight: bold;
-	box-shadow: 5px 10px darkred;
-	&:hover {
-		box-shadow: 5px 5px darkred;
-		cursor: pointer;
-	}
-`;
+
 
 const Hero = () => {
 	const [data, setData] = useState();
@@ -77,9 +66,9 @@ const Hero = () => {
 			<OverLay>
 				<HeroText>THE HOME OF AWESOME SHOES!</HeroText>
 				<Link to="/products">
-					<ShopButton>
+					<Button>
 						<h2>SHOP NOW</h2>
-					</ShopButton>
+					</Button>
 				</Link>
 			</OverLay>
 			<StyledImage src={`${data[0].imgUrl}`} alt="Featured shoes" />

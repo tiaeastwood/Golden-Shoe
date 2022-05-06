@@ -27,3 +27,17 @@ export const StyledImage = styled.img`
 	object-fit: cover;
 	object-position: center center;
 `;
+
+export const Button = styled.button`
+	width: auto;
+	background: white;
+	color: darkred;
+	border: none;
+	padding: 0 10px;
+	font-weight: bold;
+	box-shadow: 5px 10px darkred;
+	&:hover {
+		box-shadow: 5px 5px darkred;
+		cursor: pointer;
+	}
+`;

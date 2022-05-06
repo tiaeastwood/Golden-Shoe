@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { StyledMain } from "../components/shared";
-import { useCart } from "../hooks/useCart";
 import styled from "styled-components";
-import Item from "./Item";
 
 const CartItem = styled.div`
 	width: 100%;

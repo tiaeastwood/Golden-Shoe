@@ -4,7 +4,7 @@ import TwitterIcon from "@mui/icons-material/Twitter";
 import FacebookIcon from "@mui/icons-material/Facebook";
 
 const StyledFooter = styled.footer`
-	width: 100vw;
+	width: 100%;
 	height: 9rem;
 	background: black;
 	color: white;

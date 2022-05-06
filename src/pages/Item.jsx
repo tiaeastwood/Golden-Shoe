@@ -5,8 +5,25 @@ import styled from "styled-components";
 import Grid from "@mui/material/Grid";
 import ShoppingBasketIcon from "@mui/icons-material/ShoppingBasket";
 import { useCart } from "../hooks/useCart";
+import { Button } from "../components/shared";
 
 const axios = require("axios");
+
+const AddToCartButton = styled(Button)`
+	margin-top: 20px;
+	background: darkred;
+	color: white;
+	box-shadow: 5px 10px black;
+	padding: 5px;
+	font-size: 18px;
+	span {
+		margin: 0 10px;
+	}
+	&:hover {
+		box-shadow: 5px 5px black;
+		cursor: pointer;
+	}
+`;
 
 const ImageContainer = styled.div`
 	position: relative;
@@ -41,28 +58,6 @@ const InfoContainer = styled.div`
 		select {
 			padding: 10px;
 		}
-	}
-`;
-
-const AddToCartButton = styled.button`
-	width: auto;
-	padding: 10px;
-	background: black;
-	color: white;
-	margin-top: 20px;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	width: 100%;
-
-	&:hover {
-		cursor: pointer;
-	}
-
-	span {
-		font-size: 18px;
-		font-weight: bold;
-		margin-right: 5px;
 	}
 `;
 
