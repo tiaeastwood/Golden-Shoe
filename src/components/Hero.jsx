@@ -41,8 +41,6 @@ const HeroText = styled.h1`
 	max-width: 90%;
 `;
 
-
-
 const Hero = () => {
 	const [data, setData] = useState();
 

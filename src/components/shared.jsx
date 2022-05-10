@@ -1,5 +1,16 @@
-
 import styled from "styled-components";
+import { ThemeProvider } from "styled-components";
+
+const theme = {
+	colors: {
+		yellow: "#fff834;",
+		red: "#8b0000",
+	},
+};
+
+export const Theme = ({ children }) => (
+	<ThemeProvider theme={theme}>{children}</ThemeProvider>
+);
 
 export const StyledMain = styled.main`
 	height: 100%;

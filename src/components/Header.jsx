@@ -11,15 +11,14 @@ import ListItemText from "@mui/material/ListItemText";
 import CloseIcon from "@mui/icons-material/Close";
 import ShoppingBasketIcon from "@mui/icons-material/ShoppingBasket";
 import PersonIcon from "@mui/icons-material/Person";
+import Logo from "../assets/logo.png";
 
 const StyledHeader = styled.header`
 	background-color: darkred;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	font-size: 1rem;
 	height: 5rem;
-	color: white;
 	padding: 0 2rem;
 	position: fixed;
 	top: 0;
@@ -29,11 +28,28 @@ const StyledHeader = styled.header`
 	@media (max-width: 800px) {
 		padding: 0.5rem;
 	}
-`;
 
-const TitleText = styled.h1`
-	@media (max-width: 800px) {
-		font-size: 1.5rem;
+	#title {
+		display: flex;
+		align-items: center;
+		height: 100%;
+		width: 600px;
+		max-width: 50%;
+
+		h1 {
+			color: white;
+			font-size: 2rem;
+			text-transform: uppercase;
+			@media (max-width: 800px) {
+				font-size: 1.5rem;
+				display: none;
+			}
+		}
+
+		img {
+			width: 70px;
+			height: 34px;
+		}
 	}
 `;
 
@@ -119,9 +135,11 @@ const Header = () => {
 
 	return (
 		<StyledHeader>
-			<Link to="/" style={{ color: "white" }}>
-				<TitleText>Golden Shoe</TitleText>
+			<Link to="/" id="title">
+				<img src={Logo} alt="Golden Shoe logo" />
+				<h1>Golden Shoe</h1>
 			</Link>
+
 			<StyledNav>
 				<StyledList>
 					{menuLinks.map((menuItem) => (
