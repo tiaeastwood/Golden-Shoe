@@ -1,7 +1,9 @@
 export const useCart = () => {
 
+
 	const addToCart = (product, size, colour) => {
 		const newCartItem = {
+			cartId: Date.now(),
 			id: product.id,
 			name: product.name,
             img: product.imgUrl,
@@ -9,7 +11,7 @@ export const useCart = () => {
 			size: size,
 			colour: colour
 		};
-        localStorage.setItem(`cart-item-${newCartItem.id}`, JSON.stringify(newCartItem));
+        localStorage.setItem(`cart-item-${newCartItem.cartId}`, JSON.stringify(newCartItem));
 
     };
     

@@ -31,14 +31,18 @@ const AddToCartButton = styled(Button)`
 const ImageContainer = styled.div`
 	position: relative;
 	width: 100%;
-	height: 100%;
+	height: 450px;
 	vertical-align: middle;
 	overflow: hidden;
+	@media only screen and (max-width: 800px) {
+		height: 250px;
+	}
 `;
 
 const StyledImage = styled.img`
 	width: 100%;
-	height: 100%;
+	height: 450px;
+	max-height: 100%;
 	object-fit: cover;
 	object-position: center center;
 `;
@@ -68,6 +72,7 @@ const Item = () => {
 	const [selectedSize, setSelectedSize] = React.useState(null);
 	const [selectedColour, setSelectedColour] = React.useState("");
 	const [product, setProduct] = useState();
+	const [showMessage, setShowMessage] = React.useState(false);
 	let { id } = useParams();
 
 	const { addToCart } = useCart();
@@ -90,6 +95,13 @@ const Item = () => {
 	const handleChangeSize = (event) => {
 		setSelectedSize(event.target.value);
 	};
+	const addItemToCart = (product, selectedSize, selectedColour) => {
+		addToCart(product, selectedSize, selectedColour);
+		setShowMessage(true);
+		setTimeout(() => {
+			setShowMessage(false);
+		}, 3000);
+	};
 
 	if (!product) {
 		return <h1>Loading</h1>;
@@ -98,12 +110,12 @@ const Item = () => {
 	return (
 		<StyledMain>
 			<Grid container spacing={2}>
-				<Grid item xs={12} md={6}>
+				<Grid item xs={12} md={7}>
 					<ImageContainer>
 						<StyledImage src={`${product.imgUrl}`} alt={`${product.name}`} />
 					</ImageContainer>
 				</Grid>
-				<Grid item xs={12} md={6}>
+				<Grid item xs={12} md={5}>
 					<InfoContainer>
 						<div id="main">
 							<h4>{product.brand}</h4>
@@ -152,7 +164,7 @@ const Item = () => {
 												<option
 													key={`size-${index}`}
 													disabled={b.amount === 0}
-													value={b.amount}
+													value={b.size}
 												>
 													{b.amount > 0
 														? b.size
@@ -164,12 +176,15 @@ const Item = () => {
 							)}
 						</div>
 						<AddToCartButton
-							disabled={!selectedColour && !selectedSize}
-							onClick={() => addToCart(product, selectedSize, selectedColour)}
+							disabled={!selectedColour || !selectedSize}
+							onClick={() =>
+								addItemToCart(product, selectedSize, selectedColour)
+							}
 						>
 							<span>BUY</span>
 							<ShoppingBasketIcon />
 						</AddToCartButton>
+						{showMessage && <p>Added to cart!</p>}
 					</InfoContainer>
 				</Grid>
 			</Grid>

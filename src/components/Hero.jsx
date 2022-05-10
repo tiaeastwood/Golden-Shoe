@@ -41,6 +41,10 @@ const HeroText = styled.h1`
 	max-width: 90%;
 `;
 
+const ShopButton = styled(Button)`
+	background: ${({ theme: { colors } }) => colors.yellow};
+`;
+
 const Hero = () => {
 	const [data, setData] = useState();
 
@@ -64,9 +68,9 @@ const Hero = () => {
 			<OverLay>
 				<HeroText>THE HOME OF AWESOME SHOES!</HeroText>
 				<Link to="/products">
-					<Button>
+					<ShopButton>
 						<h2>SHOP NOW</h2>
-					</Button>
+					</ShopButton>
 				</Link>
 			</OverLay>
 			<StyledImage src={`${data[0].imgUrl}`} alt="Featured shoes" />

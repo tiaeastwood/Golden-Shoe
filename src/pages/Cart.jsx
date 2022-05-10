@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { StyledMain } from "../components/shared";
 import styled from "styled-components";
+import DeleteIcon from "@mui/icons-material/Delete";
 
 const CartItem = styled.div`
 	width: 100%;
 	display: flex;
-	align-content: flex-start;
 
 	img {
 		width: 100px;
@@ -13,6 +13,18 @@ const CartItem = styled.div`
 	}
 	p {
 		margin: 0;
+	}
+
+	@media only screen and (max-width: 800px) {
+		flex-direction: column;
+	}
+`;
+
+const DeleteButton = styled.div`
+	background: transparent;
+
+	&:hover {
+		cursor: pointer;
 	}
 `;
 
@@ -38,8 +50,6 @@ const Cart = () => {
 		setCartItems(list);
 	};
 
-	console.log(cartItems);
-
 	if (cartItems.length === 0) {
 		return <p>You have nothing in your cart</p>;
 	}
@@ -48,7 +58,7 @@ const Cart = () => {
 		<StyledMain>
 			<h1>Cart</h1>
 
-			<table style={{ textAlign: "left" }}>
+			<table>
 				<thead>
 					<tr>
 						<th>Product</th>
@@ -75,7 +85,9 @@ const Cart = () => {
 								</td>
 								<td>1</td>
 								<td>
-									<button onClick={() => removeItem(item.id)}>Remove</button>
+									<DeleteButton onClick={() => removeItem(item.cartId)}>
+										<DeleteIcon />
+									</DeleteButton>
 								</td>
 							</tr>
 						);

@@ -21,7 +21,7 @@ export const StyledMain = styled.main`
 	flex-direction: column;
 	margin-top: 20px;
 	@media only screen and (max-width: 800px) {
-		padding: 20% 10%;
+		padding: 20% 5%;
 	}
 `;
 

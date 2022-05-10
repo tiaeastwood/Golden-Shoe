@@ -69,6 +69,26 @@
 			],
 			"price": "£120",
 			"imgUrl": "https://images.unsplash.com/photo-1591607556797-bceff2a23db6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"
+		},
+		{
+			"id": 4,
+			"brand": "Vans",
+			"name": "Old Skool",
+			"description": "They say true style never goes out of fashion; and the Vans Old Skool is a staple trainer for any collection. The skate profile arrives in black fabric, with suede overlay for added durability. White Sidestripe branding and a waffle tread completes.",
+			"options": [
+				{
+					"colour": "black",
+					"stock": [
+						{ "size": 3, "amount": 9 },
+						{ "size": 4, "amount": 5 },
+						{ "size": 5, "amount": 9 },
+						{ "size": 6, "amount": 12 },
+						{ "size": 7, "amount": 0 }
+					]
+				}
+			],
+			"price": "£65",
+			"imgUrl": "https://images.unsplash.com/photo-1531185038189-41815d864f32?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=725&q=80"
 		}
 	]
 }

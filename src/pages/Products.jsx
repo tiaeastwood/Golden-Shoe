@@ -26,6 +26,16 @@ const InfoContainer = styled.div`
 	}
 `;
 
+const ProdImage = styled(StyledImage)`
+	height: 300px;
+	max-height: 100%;
+	object-fit: cover;
+	object-position: center center;
+	@media only screen and (max-width: 800px) {
+		height: 150px;
+	}
+`;
+
 const Products = () => {
 	const [data, setData] = useState();
 
@@ -54,10 +64,7 @@ const Products = () => {
 								<ProductContainer>
 									<Link to={`/products/${prod.id}`}>
 										<ImageContainer>
-											<StyledImage
-												src={`${prod.imgUrl}`}
-												alt={`${prod.name}`}
-											/>
+											<ProdImage src={`${prod.imgUrl}`} alt={`${prod.name}`} />
 										</ImageContainer>
 									</Link>
 									<InfoContainer>
