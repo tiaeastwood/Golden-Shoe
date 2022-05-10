@@ -5,6 +5,7 @@ const theme = {
 	colors: {
 		yellow: "#fff834;",
 		red: "#8b0000",
+		disabled: "grey",
 	},
 };
 

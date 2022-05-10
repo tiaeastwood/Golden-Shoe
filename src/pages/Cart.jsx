@@ -65,7 +65,8 @@ const Cart = () => {
 										<img src={`${item.img}`} alt={cartItems.name} />
 										<div>
 											<p>{item.name}</p>
-											<p>Size {item.size}</p>
+											<p>Size: {item.size}</p>
+											<p>Colour: {item.colour}</p>
 										</div>
 									</CartItem>
 								</td>

@@ -5,12 +5,17 @@
 			"brand": "Nike",
 			"name": "Air Max",
 			"description": "Old-skool look, new-school comfort! The Nike Air Max SC trainer defines style with its heritage silhouette, easy going lines and unbeatable Air cushioning. White and black colourway and Swoosh branding completes.",
-			"stock": [
-				{ "size": 3, "stock": 5 },
-				{ "size": 4, "stock": 0 },
-				{ "size": 5, "stock": 15 },
-				{ "size": 6, "stock": 7 },
-				{ "size": 7, "stock": 9 }
+			"options": [
+				{
+					"colour": "orange",
+					"stock": [
+						{ "size": 3, "amount": 10 },
+						{ "size": 4, "amount": 10 },
+						{ "size": 5, "amount": 0 },
+						{ "size": 6, "amount": 23 },
+						{ "size": 7, "amount": 13 }
+					]
+				}
 			],
 			"price": "£99",
 			"imgUrl": "https://images.unsplash.com/photo-1514989940723-e8e51635b782?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"
@@ -20,12 +25,27 @@
 			"brand": "Converse",
 			"name": "All Star Hi",
 			"description": "The Converse All Star Hi is a true style icon. The hi-top silhouette is dressed in a black canvas upper, bearing the original Chuck Taylor badge on the inner ankle. A white vulcanised sole with classic toe cap completes. As cool now as it ever was.",
-			"stock": [
-				{ "size": 3, "stock": 10 },
-				{ "size": 4, "stock": 10 },
-				{ "size": 5, "stock": 1 },
-				{ "size": 6, "stock": 23 },
-				{ "size": 7, "stock": 13 }
+			"options": [
+				{
+					"colour": "black",
+					"stock": [
+						{ "size": 3, "amount": 10 },
+						{ "size": 4, "amount": 10 },
+						{ "size": 5, "amount": 0 },
+						{ "size": 6, "amount": 23 },
+						{ "size": 7, "amount": 13 }
+					]
+				},
+				{
+					"colour": "red",
+					"stock": [
+						{ "size": 3, "amount": 0 },
+						{ "size": 4, "amount": 12 },
+						{ "size": 5, "amount": 2 },
+						{ "size": 6, "amount": 20 },
+						{ "size": 7, "amount": 9 }
+					]
+				}
 			],
 			"price": "£50",
 			"imgUrl": "https://images.unsplash.com/photo-1463100099107-aa0980c362e6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
@@ -35,12 +55,17 @@
 			"brand": "Dr Martens",
 			"name": "Jadon 8 Eye Boots",
 			"description": "Arriving with a 4.5cm platform sole and plenty of attitude, this modern classic from Dr. Martens is exactly what you need to take on the new season. The black leather upper and iconic stitched branding finishes the chunky Jadon 8-Eye boot perfectly.",
-			"stock": [
-				{ "size": 3, "stock": 8 },
-				{ "size": 4, "stock": 18 },
-				{ "size": 5, "stock": 5 },
-				{ "size": 6, "stock": 19 },
-				{ "size": 7, "stock": 3 }
+			"options": [
+				{
+					"colour": "black",
+					"stock": [
+						{ "size": 3, "amount": 10 },
+						{ "size": 4, "amount": 10 },
+						{ "size": 5, "amount": 0 },
+						{ "size": 6, "amount": 23 },
+						{ "size": 7, "amount": 13 }
+					]
+				}
 			],
 			"price": "£120",
 			"imgUrl": "https://images.unsplash.com/photo-1591607556797-bceff2a23db6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"
