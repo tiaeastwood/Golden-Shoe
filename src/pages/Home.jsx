@@ -35,7 +35,7 @@ const Home = () => {
 						style={{
 							textAlign: "center",
 							margin: "2rem 0 -1rem 0",
-							fontSize: 40,
+							fontSize: 30,
 						}}
 					>
 						LATEST STYLES
@@ -47,7 +47,7 @@ const Home = () => {
 						<ImageContainer>
 							<StyledImage src={`${data[1].imgUrl}`} alt={`${data[1].name}`} />
 							<Overlay>
-								<h2>SHOP NOW!</h2>
+								<h2>{`${data[1].brand} ${data[1].name}`}</h2>
 							</Overlay>
 						</ImageContainer>
 					</Link>
@@ -58,7 +58,7 @@ const Home = () => {
 						<ImageContainer>
 							<StyledImage src={`${data[2].imgUrl}`} alt={`${data[1].name}`} />
 							<Overlay>
-								<h2>SHOP NOW!</h2>
+								<h2>{`${data[2].brand} ${data[2].name}`}</h2>
 							</Overlay>
 						</ImageContainer>
 					</Link>

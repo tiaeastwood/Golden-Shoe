@@ -22,6 +22,9 @@ const Wrapper = styled.div`
 	padding-bottom: 15rem;
 	position: relative;
 	min-height: 100vh;
+	@media only screen and (max-width: 800px) {
+		padding-bottom: 22rem;
+	}
 `;
 
 function App() {

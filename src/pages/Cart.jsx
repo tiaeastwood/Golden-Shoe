@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { StyledMain } from "../components/shared";
 import styled from "styled-components";
 import DeleteIcon from "@mui/icons-material/Delete";
+import { useCart } from "../hooks/useCart";
 
 const CartItem = styled.div`
 	width: 100%;
@@ -30,6 +31,7 @@ const DeleteButton = styled.div`
 
 const Cart = () => {
 	const [cartItems, setCartItems] = useState([]);
+	const { getCartItems, removeCartItem } = useCart();
 
 	useEffect(() => {
 		let list = [];
@@ -41,13 +43,10 @@ const Cart = () => {
 
 	const removeItem = (key) => {
 		const itemToRemove = `cart-item-${key}`;
-		localStorage.removeItem(itemToRemove);
+		removeCartItem(itemToRemove);
 
-		let list = [];
-		for (let i = 0, len = localStorage.length; i < len; ++i) {
-			list.push(JSON.parse(localStorage.getItem(localStorage.key(i))));
-		}
-		setCartItems(list);
+		const items = getCartItems();
+		setCartItems(items);
 	};
 
 	if (cartItems.length === 0) {

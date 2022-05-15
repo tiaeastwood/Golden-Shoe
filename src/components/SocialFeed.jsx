@@ -6,7 +6,6 @@ import Box from "@mui/material/Box";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 
-
 const SocialImageContainer = styled(ImageContainer)`
 	width: 100%;
 	max-width: 300px;
@@ -40,14 +39,22 @@ const SocialFeed = () => {
 	});
 
 	return (
-		<Grid item container xs={12} textAlign="center">
+		<Grid item container xs={12} textAlign="center" margin={"1rem 0"}>
 			<Grid item xs={1}>
 				<ArrowBackIosIcon />
 			</Grid>
 			<Grid item xs={10} textAlign="center">
-				<h2>#GoldenShoe</h2>
+				<h2
+					style={{
+						textAlign: "center",
+						margin: "0",
+						fontSize: 30,
+					}}
+				>
+					#GoldenShoe
+				</h2>
 			</Grid>
-			<Grid item xs={1} direction="row-reverse">
+			<Grid item xs={1}>
 				<ArrowForwardIosIcon />
 			</Grid>
 
@@ -56,7 +63,7 @@ const SocialFeed = () => {
 					<SocialImageContainer>
 						<SocialImage src={`${images[0]}`} alt="Golden Shoe on Instagram" />
 						<Overlay>
-							<p>@tj12345</p>
+							<p>@_tj12345</p>
 						</Overlay>
 					</SocialImageContainer>
 				</Box>
@@ -71,7 +78,7 @@ const SocialFeed = () => {
 								alt="Golden Shoe on Instagram"
 							/>
 							<Overlay>
-								<p>@shoeluvr</p>
+								<p>@shoe_luvr</p>
 							</Overlay>
 						</SocialImageContainer>
 					</Box>
