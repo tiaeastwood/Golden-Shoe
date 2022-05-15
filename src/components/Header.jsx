@@ -125,7 +125,10 @@ const Header = () => {
 				{menuLinks.map((menuItem) => (
 					<ListItem button key={menuItem.page}>
 						<Link to={menuItem.link}>
-							<ListItemText primary={menuItem.page} />
+							<ListItemText
+								primary={menuItem.page}
+								primaryTypographyProps={{ fontSize: "30px" }}
+							/>
 						</Link>
 					</ListItem>
 				))}

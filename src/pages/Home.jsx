@@ -1,35 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import styled from "styled-components";
 
 import Hero from "../components/Hero";
 import Grid from "@mui/material/Grid";
-import { ImageContainer, StyledImage } from "../components/shared";
+import { ImageContainer, StyledImage, Overlay } from "../components/shared";
+import SocialFeed from "../components/SocialFeed";
 
 const axios = require("axios");
-
-const Overlay = styled.div`
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	position: absolute;
-	bottom: 0;
-	background: rgb(0, 0, 0);
-	background: rgba(0, 0, 0, 0.5);
-	color: #f1f1f1;
-	width: 100%;
-	height: 100%;
-	transition: 0.5s ease;
-	opacity: 0;
-	color: white;
-	font-size: 20px;
-	padding: 20px;
-	text-align: center;
-	&:hover {
-		opacity: 1;
-		cursor: pointer;
-	}
-`;
 
 const Home = () => {
 	const [data, setData] = useState();
@@ -52,7 +29,7 @@ const Home = () => {
 	return (
 		<>
 			<Hero />
-			<Grid container spacing={2}>
+			<Grid container spacing={2} justifyContent="center" alignItems="center">
 				<Grid item xs={12}>
 					<h2
 						style={{
@@ -86,6 +63,8 @@ const Home = () => {
 						</ImageContainer>
 					</Link>
 				</Grid>
+
+				<SocialFeed />
 			</Grid>
 		</>
 	);

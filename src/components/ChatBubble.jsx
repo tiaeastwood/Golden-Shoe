@@ -17,6 +17,9 @@ const Bubble = styled.div`
 	margin: 10px;
 	position: fixed;
 	z-index: 99;
+	&:hover {
+		cursor: pointer;
+	}
 `;
 
 const ChatWindow = styled.div`
